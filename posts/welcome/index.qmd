@@ -1,0 +1,12 @@
+---
+title: "Where does this land?"
+author: "Chris"
+date: "september 27th"
+categories: [blog]
+---
+
+I'm trying to understand the paths for file structure and setup
+
+![](/images/bloodStar.png)
+
+Doing what I can

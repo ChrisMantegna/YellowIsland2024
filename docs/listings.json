@@ -1,0 +1,49 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/mentorship.html",
+    "items": [
+      "/mentorship/reu.html",
+      "/mentorship/ddcsp.html",
+      "/mentorship/innovation.html",
+      "/mentorship/initialtest.html"
+    ]
+  },
+  {
+    "listing": "/notebook.html",
+    "items": [
+      "/notebook/2024may.html",
+      "/notebook/2024maygoals.html",
+      "/notebook/2024april.html",
+      "/notebook/2024march.html",
+      "/notebook/2024marchgoals.html",
+      "/notebook/2024february.html",
+      "/notebook/2024februarygoals.html",
+      "/notebook/2024january.html",
+      "/notebook/2024januarygoals.html",
+      "/notebook/2023december.html",
+      "/notebook/2023decembergoals.html",
+      "/notebook/2023november.html",
+      "/notebook/2023novembergoals.html",
+      "/notebook/2023october.html",
+      "/notebook/2023octobergoals.html",
+      "/notebook/2023september.html",
+      "/notebook/2023septembergoals.html",
+      "/notebook/2023august.html",
+      "/notebook/2023july.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/welcome/index.html",
+      "/posts/post-with-code/index.html"
+    ]
+  }
+]
