@@ -2,9 +2,7 @@
 title: "YellowIsland2024"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This is the index file that runs things... make notes here for 'must do's ' before deployment
 
 ```{r}
 1 + 1

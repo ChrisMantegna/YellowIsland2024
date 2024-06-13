@@ -2,7 +2,19 @@
 title: "About"
 ---
 
-About this site
+Landing page for the program.\\
+
+At a glance schedule\\
+
+Links to each program\\
+
+Photos\\
+
+Resources\\
+
+Explanation of what we're doing and what we can do with this\\
+
+Link to full yellow site with previous scholar's work and all of that.
 
 ```{r}
 1 + 1

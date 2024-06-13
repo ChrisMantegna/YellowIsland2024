@@ -1,19 +1,28 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "YellowIsland2024"
+  title: "Yellow Island 2024"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
+    right:
+      - href: about.qmd
+        text: About
+      - href: Week.qmd
+        text: Weekly Schedule
+      - href: projects.qmd
+        text: Projects
+      - href: mentorship.qmd
+        text: Mentorship & Outreach
+      - href: resources.qmd
+        text: Resources
+      - icon: github
+        href: https://github.com/ChrisMantegna
+      - icon: twitter
+        href: https://twitter.com/SaffireSeahorse
 format:
   html:
-    theme: cosmo
+    theme: pulse
     css: styles.css
-    toc: true
 
 editor: visual
-
