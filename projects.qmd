@@ -1,0 +1,15 @@
+---
+title: "Projects"
+---
+
+*Make these live links to the notebook posts*
+
+add posts for each project w/ steps\
+eDNA\
+p450
+
+## Ecotoxicology - *Mytilus* sp., biochemical assays and molecular tools
+
+## Ecology - Methods for biodiversity monitoring on Yellow Island
+
+## Pedagogy - Diversifying STEM education by building a new pipeline to STE(A)M

@@ -1,21 +1,16 @@
 ---
-title: "About"
+title: "Yellow Island Intertidal Monitoring Program, 2024"
+image: YellowDusk.JPG
+about:
+  template: jolla
+  links:
+    - icon: tsunami
+      text: BIMS
+      href: https://www.blackinmarinescience.org/
+    - icon: tree
+      text: TNC
+      href: https://www.nature.org/en-us/about-us/where-we-work/united-states/washington/
+    - icon: github
+      text: Github
+      href: https://github.com/ChrisMantegna
 ---
-
-Landing page for the program.\\
-
-At a glance schedule\\
-
-Links to each program\\
-
-Photos\\
-
-Resources\\
-
-Explanation of what we're doing and what we can do with this\\
-
-Link to full yellow site with previous scholar's work and all of that.
-
-```{r}
-1 + 1
-```
