@@ -11,12 +11,14 @@ html_dependencies:
     script: "bootstrap.min.js"
 ---
 
+Full detailed schedule can be found [here](https://calendar.google.com/calendar/u/0?cid=MTJjMzQ3YWZjNDhjMjdkMTllNWViNGYzZTg4OGE5ZGQ0NDFiMmMzYTQ4MTRjNzJhOWIwMDkwNDRkNzcwMDY4MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t "Calendar").\
+
 ## Week 1
 
 This week it's all REU all the time while we await our DDCSP folks and their summer orientation in Seattle
 
 | Date | Task                                                                  |
-|------------------|------------------------------------------------------|
+|------|-----------------------------------------------------------------------|
 | 6/10 | Welcome to FHL Orientation, Day 1 of 2, Meet your mentor              |
 | 6/11 | Welcome to FHL Orientation, Day 2 of 2                                |
 | 6/12 | Jackson Beach Seining, Independent work, FHL Seminar, Mentor check-in |
@@ -30,7 +32,7 @@ This week it's all REU all the time while we await our DDCSP folks and their sum
 Whole cohort activities!
 
 | Date | Task                                                                                            |
-|------------------|------------------------------------------------------|
+|------|-------------------------------------------------------------------------------------------------|
 | 6/17 | Welcome to FHL DDCSP, REU 1v1s, Community guidelines, Cooking schedule, What is the intertidal? |
 | 6/18 | Professional development, FHL Seminar                                                           |
 | 6/19 | Site survey forms, Species ID, what to expect, eet a Scientist w/ Dr. Stanton Belford           |
@@ -58,7 +60,7 @@ Whole cohort activities!
 Whole cohort activities!
 
 | Date | Task                                                                                    |
-|------------------|------------------------------------------------------|
+|------|-----------------------------------------------------------------------------------------|
 | 7/01 | Data entry must be complete by today, projects, day off. Chris returning to island (pm) |
 | 7/02 | Yellow field day                                                                        |
 | 7/03 | Yellow field day                                                                        |
