@@ -11,7 +11,7 @@ html_dependencies:
     script: "bootstrap.min.js"
 ---
 
-Full detailed schedule can be found [here](https://calendar.google.com/calendar/u/0?cid=MTJjMzQ3YWZjNDhjMjdkMTllNWViNGYzZTg4OGE5ZGQ0NDFiMmMzYTQ4MTRjNzJhOWIwMDkwNDRkNzcwMDY4MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t "Calendar").\
+Full detailed schedule can be found [here](https://calendar.google.com/calendar/u/0?cid=MTJjMzQ3YWZjNDhjMjdkMTllNWViNGYzZTg4OGE5ZGQ0NDFiMmMzYTQ4MTRjNzJhOWIwMDkwNDRkNzcwMDY4MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t).\
 
 ## Week 1
 
