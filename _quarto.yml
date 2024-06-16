@@ -8,7 +8,7 @@ website:
     right:
       - href: about.qmd
         text: About
-      - href: Week.qmd
+      - href: weekly.qmd
         text: Weekly Schedule
       - href: projects.qmd
         text: Projects
