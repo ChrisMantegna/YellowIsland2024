@@ -1,5 +1,5 @@
 ---
-title: "Mentorship & Outreach"
+title: "Mentors"
 listing:
   contents: mentorship
   sort: "date desc"
@@ -12,4 +12,4 @@ page-layout: full
 title-block-banner: true
 ---
 
-DDCSP REU BIMS IG
+WHo are the folks supporting us this summer?

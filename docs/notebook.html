@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chris’ Lab Notebook - Research Notebook</title>
+<title>Yellow Island 2024 - Research Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,13 +47,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,7 +56,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -78,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -101,45 +94,18 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Chris’ Lab Notebook</span>
+    <span class="navbar-title">Yellow Island 2024</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -149,39 +115,39 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./Week.qmd" rel="" target="">
+ <span class="menu-text">Weekly Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="./projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./mentorship.html"> 
-<span class="menu-text">Mentorship &amp; Outreach</span></a>
+    <a class="nav-link" href="./mentorship.html" rel="" target="">
+ <span class="menu-text">Mentorship &amp; Outreach</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./notebook.html" aria-current="page"> 
-<span class="menu-text">Notebook</span></a>
+    <a class="nav-link" href="./resources.qmd" rel="" target="">
+ <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/ChrisMantegna"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/ChrisMantegna" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/SaffireSeahorse"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/SaffireSeahorse" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -194,7 +160,7 @@ window.Quarto = {
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
       
     
@@ -207,7 +173,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div><div class="category" data-category="daily entries">daily entries <span class="quarto-category-count">(8)</span></div><div class="category" data-category="daily log">daily log <span class="quarto-category-count">(11)</span></div><div class="category" data-category="monthly goals">monthly goals <span class="quarto-category-count">(19)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -218,8 +184,8 @@ window.Quarto = {
 
 
 
-
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -243,387 +209,8 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="monthly goals,daily log" data-listing-date-sort="1714546800000" data-listing-file-modified-sort="1715101464379" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="May 2024 Daily Notebook Post Log" data-listing-filename-sort="2024may.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">May 1, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024may.html" class="title listing-title">May 2024 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">2 min</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="monthly goals,daily entries" data-listing-date-sort="1714460400000" data-listing-file-modified-sort="1714628454157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="May 2024 Goals" data-listing-filename-sort="2024maygoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Apr 30, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024maygoals.html" class="title listing-title">May 2024 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="monthly goals,daily log" data-listing-date-sort="1711954800000" data-listing-file-modified-sort="1714626365892" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="15" data-listing-title-sort="April 2024 Daily Notebook Post Log" data-listing-filename-sort="2024april.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Apr 1, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024april.html" class="title listing-title">April 2024 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="monthly goals,daily log" data-listing-date-sort="1709280000000" data-listing-file-modified-sort="1714626216029" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="892" data-listing-title-sort="March 2024 Daily Notebook Post Log" data-listing-filename-sort="2024march.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Mar 1, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024march.html" class="title listing-title">March 2024 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">5 min</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="monthly goals,daily entries" data-listing-date-sort="1709193600000" data-listing-file-modified-sort="1714628217173" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64" data-listing-title-sort="March 2024 Goals" data-listing-filename-sort="2024marchgoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Feb 29, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024marchgoals.html" class="title listing-title">March 2024 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="monthly goals,daily log" data-listing-date-sort="1706774400000" data-listing-file-modified-sort="1709591055626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2254" data-listing-title-sort="February 2024 Daily Notebook Post Log" data-listing-filename-sort="2024february.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Feb 1, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024february.html" class="title listing-title">February 2024 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">12 min</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="monthly goals,daily entries" data-listing-date-sort="1706688000000" data-listing-file-modified-sort="1708668059589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49" data-listing-title-sort="February 2024 Goals" data-listing-filename-sort="2024februarygoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Jan 31, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024februarygoals.html" class="title listing-title">February 2024 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="monthly goals,daily log" data-listing-date-sort="1704096000000" data-listing-file-modified-sort="1706889427069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1902" data-listing-title-sort="January 2024 Daily Notebook Post Log" data-listing-filename-sort="2024january.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Jan 1, 2024</span>
-</td>
-<td>
-<a href="./notebook/2024january.html" class="title listing-title">January 2024 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">10 min</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="monthly goals,daily entries" data-listing-date-sort="1704009600000" data-listing-file-modified-sort="1708668082358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="346" data-listing-title-sort="January 2024 Goals" data-listing-filename-sort="2024januarygoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Dec 31, 2023</span>
-</td>
-<td>
-<a href="./notebook/2024januarygoals.html" class="title listing-title">January 2024 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">2 min</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="monthly goals,daily log" data-listing-date-sort="1701417600000" data-listing-file-modified-sort="1704325176466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1086" data-listing-title-sort="December 2023 Daily Notebook Post Log" data-listing-filename-sort="2023december.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Dec 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023december.html" class="title listing-title">December 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="monthly goals,daily entries" data-listing-date-sort="1701244800000" data-listing-file-modified-sort="1709616563932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="324" data-listing-title-sort="December 2023 Goals" data-listing-filename-sort="2023decembergoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Nov 29, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023decembergoals.html" class="title listing-title">December 2023 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">2 min</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="monthly goals,daily log" data-listing-date-sort="1698822000000" data-listing-file-modified-sort="1709616516791" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1035" data-listing-title-sort="November 2023 Daily Notebook Post Log" data-listing-filename-sort="2023november.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Nov 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023november.html" class="title listing-title">November 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="monthly goals,daily entries" data-listing-date-sort="1698735600000" data-listing-file-modified-sort="1708669318024" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424" data-listing-title-sort="November 2023 Goals" data-listing-filename-sort="2023novembergoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Oct 31, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023novembergoals.html" class="title listing-title">November 2023 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">3 min</span>
-</td>
-</tr>
-<tr data-index="13" data-categories="monthly goals,daily log" data-listing-date-sort="1696143600000" data-listing-file-modified-sort="1698807307985" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1214" data-listing-title-sort="October 2023 Daily Notebook Post Log" data-listing-filename-sort="2023october.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Oct 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023october.html" class="title listing-title">October 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">7 min</span>
-</td>
-</tr>
-<tr data-index="14" data-categories="monthly goals,daily entries" data-listing-date-sort="1696057200000" data-listing-file-modified-sort="1708669246208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="34" data-listing-title-sort="October 2023 Goals" data-listing-filename-sort="2023octobergoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Sep 30, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023octobergoals.html" class="title listing-title">October 2023 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="15" data-categories="monthly goals,daily log" data-listing-date-sort="1693551600000" data-listing-file-modified-sort="1696225968028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="701" data-listing-title-sort="September 2023 Daily Notebook Post Log" data-listing-filename-sort="2023september.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Sep 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023september.html" class="title listing-title">September 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">4 min</span>
-</td>
-</tr>
-<tr data-index="16" data-categories="monthly goals,daily entries" data-listing-date-sort="1693465200000" data-listing-file-modified-sort="1708669277368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="31" data-listing-title-sort="September 2023 Goals" data-listing-filename-sort="2023septembergoals.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Aug 31, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023septembergoals.html" class="title listing-title">September 2023 Goals</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily entries</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="17" data-categories="monthly goals,daily log" data-listing-date-sort="1690873200000" data-listing-file-modified-sort="1695916333019" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2337" data-listing-title-sort="August 2023 Daily Notebook Post Log" data-listing-filename-sort="2023august.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Aug 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023august.html" class="title listing-title">August 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">12 min</span>
-</td>
-</tr>
-<tr data-index="18" data-categories="monthly goals,daily log" data-listing-date-sort="1688194800000" data-listing-file-modified-sort="1695917276001" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384" data-listing-title-sort="July 2023 Daily Notebook Post Log" data-listing-filename-sort="2023july.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<span class="listing-date">Jul 1, 2023</span>
-</td>
-<td>
-<a href="./notebook/2023july.html" class="title listing-title">July 2023 Daily Notebook Post Log</a>
-</td>
-<td>
-<span class="listing-author">Chris Mantegna</span>
-</td>
-<td>
-<span class="listing-categories">monthly goals, daily log</span>
-</td>
-<td>
-<span class="listing-reading-time">2 min</span>
-</td>
-</tr>
 </tbody>
+
 </table>
 <div class="listing-no-matching d-none">
 No matching items
@@ -708,27 +295,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -738,17 +308,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -760,130 +321,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -927,7 +365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -953,32 +390,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1039,7 +450,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

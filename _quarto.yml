@@ -13,7 +13,7 @@ website:
       - href: projects.qmd
         text: Projects
       - href: mentorship.qmd
-        text: Mentorship & Outreach
+        text: Mentorship
       - href: resources.qmd
         text: Resources
       - icon: github

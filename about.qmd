@@ -1,8 +1,10 @@
 ---
 title: "Yellow Island Intertidal Monitoring Program, 2024"
-image: YellowDusk.JPG
+image: yellow.jpg
 about:
   template: jolla
+  image-width: 10cm
+  image-shape: rectangle
   links:
     - icon: tsunami
       text: BIMS
@@ -10,7 +12,7 @@ about:
     - icon: tree
       text: TNC
       href: https://www.nature.org/en-us/about-us/where-we-work/united-states/washington/
-    - icon: github
-      text: Github
-      href: https://github.com/ChrisMantegna
+    - icon: geo-fill
+      text: FHL
+      href: https://fhl.uw.edu/
 ---
