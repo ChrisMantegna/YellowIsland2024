@@ -1,5 +1,0 @@
----
-title: "2024 Projects"
----
-
-This is the landing page for the student showcase and project list/ progress

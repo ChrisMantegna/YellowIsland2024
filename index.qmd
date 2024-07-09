@@ -1,6 +1,0 @@
----
-title: "Yellow Island 2024"
----
-
-This is the landing page of the site - there will be photos, a quick blurb and links on the top right to go to program content. 
-
