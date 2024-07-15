@@ -1,0 +1,86 @@
+# Load necessary libraries
+library(vegan)      # For diversity analysis
+library(ggplot2)    # For basic plotting
+library(tidyr)      # For data manipulation
+library(dplyr)      # For data manipulation
+library(ggpubr)     # For arranging multiple plots
+library(reshape2)   # For reshaping data
+
+# Assuming your data is in a CSV file
+# Read the data
+data <- read.csv("your_data.csv")
+
+# Explore the data
+head(data)
+summary(data)
+
+# Data structure: Location, Quadrat, TidalZone, Species1, Species2, ..., SpeciesN
+# Gather species columns into long format
+data_long <- data %>%
+  gather(key = "Species", value = "Abundance", -Location, -Quadrat, -TidalZone)
+
+# Calculate species richness (alpha diversity) for each location and tidal zone
+alpha_diversity <- data_long %>%
+  group_by(Location, TidalZone, Quadrat) %>%
+  summarise(Richness = n_distinct(Species)) %>%
+  group_by(Location, TidalZone) %>%
+  summarise(AlphaDiversity = mean(Richness))
+
+# Calculate beta diversity (Bray-Curtis dissimilarity) between locations
+species_matrix <- data %>%
+  gather(key = "Species", value = "Abundance", -Location, -Quadrat, -TidalZone) %>%
+  group_by(Location, TidalZone, Species) %>%
+  summarise(Abundance = sum(Abundance)) %>%
+  spread(Species, Abundance, fill = 0)
+
+beta_diversity <- vegdist(species_matrix[, -c(1,2)], method = "bray")
+
+# Multidimensional Scaling (MDS) plot for beta diversity
+mds <- metaMDS(beta_diversity)
+
+# Plot alpha diversity
+p1 <- ggplot(alpha_diversity, aes(x = Location, y = AlphaDiversity, fill = TidalZone)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  labs(title = "Alpha Diversity by Location and Tidal Zone", x = "Location", y = "Alpha Diversity (Species Richness)")
+
+# Plot MDS
+mds_points <- data.frame(MDS1 = mds$points[,1], MDS2 = mds$points[,2], Location = species_matrix$Location, TidalZone = species_matrix$TidalZone)
+p2 <- ggplot(mds_points, aes(x = MDS1, y = MDS2, color = Location, shape = TidalZone)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "MDS Plot of Beta Diversity", x = "MDS1", y = "MDS2")
+
+# Arrange the plots
+combined_plot <- ggarrange(p1, p2, ncol = 2, nrow = 1)
+
+# Save the combined plot
+ggsave("diversity_analysis.png", combined_plot, width = 12, height = 6)
+
+# Fun visualizations for presentations
+# Bubble plot of species abundance
+bubble_plot <- ggplot(data_long, aes(x = Quadrat, y = Species, size = Abundance, color = Location, shape = TidalZone)) +
+  geom_point(alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Species Abundance in Quadrats", x = "Quadrat", y = "Species", size = "Abundance")
+
+# Save bubble plot
+ggsave("bubble_plot.png", bubble_plot, width = 12, height = 8)
+
+# Heatmap of species abundance
+heatmap_data <- data_long %>%
+  group_by(Location, TidalZone, Species) %>%
+  summarise(Abundance = sum(Abundance)) %>%
+  spread(Species, Abundance, fill = 0) %>%
+  gather(Species, Abundance, -Location, -TidalZone)
+
+heatmap_plot <- ggplot(heatmap_data, aes(x = Species, y = interaction(Location, TidalZone), fill = Abundance)) +
+  geom_tile() +
+  theme_minimal() +
+  scale_fill_gradient(low = "white", high = "blue") +
+  labs(title = "Heatmap of Species Abundance", x = "Species", y = "Location and Tidal Zone", fill = "Abundance")
+
+# Save heatmap plot
+ggsave("heatmap_plot.png", heatmap_plot, width = 12, height = 8)
+
+# Additional visualizations can be added as needed

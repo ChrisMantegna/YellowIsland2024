@@ -39,7 +39,7 @@ library(vegan)
 # Power- Cohen's D
 ```{r}
 # Install and load the pwr package
-install.packages("pwr")
+#install.packages("pwr")
 library(pwr)
 
 # Define the parameters
