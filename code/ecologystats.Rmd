@@ -2,6 +2,7 @@
 title: ecology stats general doc
 ---
 
+#update 7.15
 ```{r}
 # Load necessary libraries
 library(vegan)      # For diversity analysis
