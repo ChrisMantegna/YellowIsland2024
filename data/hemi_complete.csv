@@ -40,115 +40,115 @@ date_of_collection,substrate_photo,individual,section,tidal_zone,carapace_width,
 7022024,F,39,5,L,6,chocolate,green,green,spotted_white,Y,Y,Y,M
 7022024,F,40,5,L,4,brown,tan,tan,spotted_white,N,Y,N,M
 7032024,A,41,6,M,13,green,green,green,spotted_black,N,N,Y,F
-,A,42,6,M,9,grey,green,grey,spotted_white,Y,Y,N,M
-,A,43,6,M,11,green,grey,green,spotted_green,Y,Y,Y,F
-,A,44,6,M,10.5,grey,green,grey,spotted_white,Y,Y,Y,M
-,A,45,6,M,5,green,green,green,spotted_white,N,Y,N,M
-,A,46,6,M,9,green,yellow,green,spotted_black,N,Y,Y,F
-,A,47,6,M,8,green,green,green,spotted_black,Y,N,N,M
-,A,48,6,M,10,grey,green,green,spotted_black,Y,Y,N,M
-,A,49,6,M,8.5,brown,green,brown,spotted_white,Y,Y,N,M
-,A,50,6,M,4.5,brown,green,brown,spotted_white,Y,Y,N,M
-,A,51,6,M,5.5,brown,orange,brown,spotted_white,N,Y,N,M
-,A,52,6,M,8.5,grey,brown,grey,spotted_white,N,Y,N,F
-,A,53,6,M,7,light_green,brown,green,spotted_white,N,Y,N,F
-,A,54,6,M,4.5,chocolate,grey,chocolate,spotted_white,Y,Y,N,M
-,A,55,6,M,5,green,grey,green,spotted_white,N,Y,N,M
-,A,56,6,M,5.5,white ,brown,brown,spotted_black,N,N,Y,F
-,A,57,6,M,4,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
-,B,58,6,M,9,green,dark_green,green,spotted_black,Y,Y,N,M
-,B,59,6,M,9.5,green,dark_green,green,spotted_black,Y,Y,Y,M
-,B,60,6,M,8.5,light_green,dark_green,green,spotted_black,Y,N,N,M
-,B,61,6,M,7.5,light_green,green,green,spotted_white,Y,N,N,M
-,B,62,6,M,7,green,light_green,green,spotted_white,Y,Y,N,M
-,B,63,6,M,8,white ,brown,brown,spotted_brown,Y,N,N,F
-,B,64,6,M,6,grey,chocolate,grey,spotted_grey,Y,Y,Y,M
-,B,65,6,M,6,brown,green,green,spotted_white,Y,N,Y,M
-,B,66,6,M,8,green,brown,green,spotted_white,N,Y,N,FE
-,B,67,6,M,7.5,grey,green,green,spotted_white,Y,Y,Y,M
-,B,68,6,M,8,white ,white,white,spotted_brown,N,N,N,F
-,B,69,6,M,5,grey,brown,grey,spotted_grey,Y,Y,N,M
-,B,70,6,M,7,white ,grey,white,spotted_black,N,N,N,F
-,B,71,6,M,5,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
-,B,72,6,M,4,white ,tan,tan,spotted_white,N,N,N,M
-,B,73,6,M,2,brown,tan,tan,striped_white,N,N,N,M
-,B,74,6,M,2,dark_brown,white,tan,striped_white,N,N,N,M
-,B,75,6,M,1.5,green,brown,tan,spotted_white,N,Y,N,M
-,B,76,6,M,1.5,white ,dark_brown,tan,striped_black,N,N,N,M
-,C,77,6,U,7,green,green,green,spotted_white,Y,N,Y,M
-,C,78,6,U,9,chocolate,chocolate,chocolate,none,N,N,Y,M
-,C,79,6,U,8.5,green,grey,green,spotted_white,Y,Y,N,F
-,C,80,6,U,8,chocolate,chocolate,chocolate,none,Y,N,N,F
-,C,81,6,U,6.5,light_green,yellow,green,spotted_black,N,Y,N,F
-,C,82,6,U,5.5,green,grey,grey,spotted_white,Y,Y,Y,M
-,C,83,6,U,6,green,brown,green,spotted_white,Y,Y,Y,M
-,C,84,6,U,5.5,green,yellow,green,spotted_white,Y,Y,N,M
-,C,85,6,U,5,white ,dark_brown,brown,spotted_black,N,N,N,F
-,C,86,6,U,5,green,grey,grey,spotted_white,Y,Y,N,FE
-,C,87,6,U,4.5,dark_brown,light_brown,dark_brown,none,N,Y,Y,M
-,C,88,6,U,3,grey,yellow,brown,spotted_white,N,Y,Y,M
-,C,89,6,U,5,brown,green,green,spotted_white,N,Y,Y,M
-,C,90,6,U,5,green,brown,green,spotted_white,N,Y,N,F
-,C,91,6,U,4.5,green,brown,green,spotted_white,Y,Y,N,F
-,C,92,6,U,5,chocolate,green,chocolate,spotted_white,Y,Y,N,F
-,C,93,6,U,4.5,chocolate,green,chocolate,spotted_white,N,Y,N,M
-,C,94,6,U,5,green,grey,green,spotted_white,Y,Y,N,M
-,C,95,6,U,5,green,brown,green,spotted_white,Y,Y,N,M
-,C,96,6,U,5,green,brown,green,spotted_white,Y,Y,N,F
-,C,97,6,U,5,brown,green,green,spotted_white,N,Y,N,F
-,C,98,6,U,4,green,brown,green,spotted_white,N,Y,N,M
-,C,99,6,U,4.5,brown,green,green,spotted_white,Y,Y,N,M
-,C,100,6,U,3.5,chocolate,green,chocolate,spotted_white,Y,Y,N,M
-,C,101,6,U,4,white ,dark_brown,brown,spotted_black,Y,N,N,M
-,C,102,6,U,3,white ,dark_brown,brown,spotted_black,Y,N,N,M
-,C,103,6,U,3,white ,dark_brown,brown,spotted_black,Y,N,N,M
-,C,104,6,U,3.5,dark_brown,light_brown,brown,spotted_white,Y,Y,N,M
-,C,105,6,U,4,dark_green,brown,green,spotted_white,N,Y,N,M
-,C,106,6,U,3.5,dark_green,green,green,spotted_black,N,Y,N,M
-,C,107,6,U,3,dark_brown,brown,brown,spotted_black,Y,Y,N,M
-,C,108,6,U,2.5,dark_brown,yellow,brown,spotted_white,N,N,N,M
-,C,109,6,U,2,green,brown,brown,none,Y,Y,N,M
-,C,110,6,U,2.5,white ,brown,brown,spotted_white,N,N,N,M
-,C,111,6,U,3,brown,dark_brown,brown,spotted_white,N,Y,N,M
-,C,112,6,U,3.5,dark_brown,brown,brown,spotted_white,N,Y,N,M
-,C,113,6,U,3,green,brown,green,spotted_white,N,Y,N,M
-,C,114,6,U,2,green,brown,green,spotted_white,Y,Y,N,M
-,C,115,6,U,1,green,brown,green,none,Y,Y,N,M
-,C,116,6,U,1,green,brown,green,none,N,Y,N,M
-,C,117,6,U,1.5,dark_brown,white,brown,spotted_black,N,N,N,M
-,C,118,6,U,3,green,brown,green,spotted_white,N,Y,N,M
-,C,119,6,U,3,green,brown,green,spotted_white,N,Y,N,M
-,C,120,6,U,2,brown,light_brown,brown,none,N,Y,N,M
-,C,121,6,U,2.5,chocolate,light_brown,tan,spotted_black,N,Y,N,M
-,C,122,6,U,2,chocolate,chocolate,brown,none,N,N,N,M
-,C,123,6,U,3,chocolate,chocolate,brown,none,N,N,N,M
-,C,124,6,U,2.5,white ,dark_brown,brown,striped_white,Y,N,N,M
-,D,125,7,M,12,dark_brown,green,brown,spotted_white,N,Y,Y,M
-,D,126,7,M,10,grey,green,grey,spotted_white,N,Y,Y,M
-,D,127,7,M,13,green,dark_green,green,spotted_white,Y,Y,Y,M
-,D,128,7,M,12,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
-,D,129,7,M,9,chocolate,chocolate,chocolate,spotted_white,N,N,Y,M
-,D,130,7,M,9,chocolate,chocolate,chocolate,none,N,N,N,M
-,D,131,7,M,10,dark_brown,green,brown,none,N,Y,N,M
-,D,132,7,M,10,green,light_green,green,spotted_white,Y,Y,N,M
-,D,133,7,M,9,chocolate,chocolate,chocolate,none,N,N,N,M
-,D,134,7,M,7,white ,orange,grey,none,Y,Y,N,M
-,D,135,7,M,11,dark_green,green,green,none,N,N,N,M
-,D,136,7,M,7,grey,green,green,spotted_grey,N,Y,N,F
-,D,137,7,M,8,green,green,green,spotted_white,Y,Y,N,M
-,D,138,7,M,5,green,grey,brown,none,N,Y,N,M
-,D,139,7,M,6,green,grey,green,spotted_black,Y,Y,N,M
-,D,140,7,M,6,green,green,green,spotted_black,Y,N,N,M
-,D,141,7,M,4,grey,green,grey,none,N,Y,N,M
-,D,142,7,M,4,green,green,green,none,N,Y,N,M
-,D,143,7,M,3,green,light_green,green,none,N,Y,N,M
-,D,144,7,M,3,grey,green,green,none,N,N,N,M
-,D,145,7,M,3,green,brown,green,none,N,N,N,M
-,D,146,7,M,4,green,light_green,grey,none,N,Y,N,M
-,D,147,7,M,3,light_green,green,green,spotted_white,N,Y,N,M
-,D,148,7,M,2,green,green,green,none,N,N,N,M
-,D,149,7,M,3,green,green,green,none,N,N,N,M
-,D,150,7,M,2,white ,white,brown,spotted_white,N,N,N,M
+7032024,A,42,6,M,9,grey,green,grey,spotted_white,Y,Y,N,M
+7032024,A,43,6,M,11,green,grey,green,spotted_green,Y,Y,Y,F
+7032024,A,44,6,M,10.5,grey,green,grey,spotted_white,Y,Y,Y,M
+7032024,A,45,6,M,5,green,green,green,spotted_white,N,Y,N,M
+7032024,A,46,6,M,9,green,yellow,green,spotted_black,N,Y,Y,F
+7032024,A,47,6,M,8,green,green,green,spotted_black,Y,N,N,M
+7032024,A,48,6,M,10,grey,green,green,spotted_black,Y,Y,N,M
+7032024,A,49,6,M,8.5,brown,green,brown,spotted_white,Y,Y,N,M
+7032024,A,50,6,M,4.5,brown,green,brown,spotted_white,Y,Y,N,M
+7032024,A,51,6,M,5.5,brown,orange,brown,spotted_white,N,Y,N,M
+7032024,A,52,6,M,8.5,grey,brown,grey,spotted_white,N,Y,N,F
+7032024,A,53,6,M,7,light_green,brown,green,spotted_white,N,Y,N,F
+7032024,A,54,6,M,4.5,chocolate,grey,chocolate,spotted_white,Y,Y,N,M
+7032024,A,55,6,M,5,green,grey,green,spotted_white,N,Y,N,M
+7032024,A,56,6,M,5.5,white ,brown,brown,spotted_black,N,N,Y,F
+7032024,A,57,6,M,4,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
+7032024,B,58,6,M,9,green,dark_green,green,spotted_black,Y,Y,N,M
+7032024,B,59,6,M,9.5,green,dark_green,green,spotted_black,Y,Y,Y,M
+7032024,B,60,6,M,8.5,light_green,dark_green,green,spotted_black,Y,N,N,M
+7032024,B,61,6,M,7.5,light_green,green,green,spotted_white,Y,N,N,M
+7032024,B,62,6,M,7,green,light_green,green,spotted_white,Y,Y,N,M
+7032024,B,63,6,M,8,white ,brown,brown,spotted_brown,Y,N,N,F
+7032024,B,64,6,M,6,grey,chocolate,grey,spotted_grey,Y,Y,Y,M
+7032024,B,65,6,M,6,brown,green,green,spotted_white,Y,N,Y,M
+7032024,B,66,6,M,8,green,brown,green,spotted_white,N,Y,N,FE
+7032024,B,67,6,M,7.5,grey,green,green,spotted_white,Y,Y,Y,M
+7032024,B,68,6,M,8,white ,white,white,spotted_brown,N,N,N,F
+7032024,B,69,6,M,5,grey,brown,grey,spotted_grey,Y,Y,N,M
+7032024,B,70,6,M,7,white ,grey,white,spotted_black,N,N,N,F
+7032024,B,71,6,M,5,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
+7032024,B,72,6,M,4,white ,tan,tan,spotted_white,N,N,N,M
+7032024,B,73,6,M,2,brown,tan,tan,striped_white,N,N,N,M
+7032024,B,74,6,M,2,dark_brown,white,tan,striped_white,N,N,N,M
+7032024,B,75,6,M,1.5,green,brown,tan,spotted_white,N,Y,N,M
+7032024,B,76,6,M,1.5,white ,dark_brown,tan,striped_black,N,N,N,M
+7032024,C,77,6,U,7,green,green,green,spotted_white,Y,N,Y,M
+7032024,C,78,6,U,9,chocolate,chocolate,chocolate,none,N,N,Y,M
+7032024,C,79,6,U,8.5,green,grey,green,spotted_white,Y,Y,N,F
+7032024,C,80,6,U,8,chocolate,chocolate,chocolate,none,Y,N,N,F
+7032024,C,81,6,U,6.5,light_green,yellow,green,spotted_black,N,Y,N,F
+7032024,C,82,6,U,5.5,green,grey,grey,spotted_white,Y,Y,Y,M
+7032024,C,83,6,U,6,green,brown,green,spotted_white,Y,Y,Y,M
+7032024,C,84,6,U,5.5,green,yellow,green,spotted_white,Y,Y,N,M
+7032024,C,85,6,U,5,white ,dark_brown,brown,spotted_black,N,N,N,F
+7032024,C,86,6,U,5,green,grey,grey,spotted_white,Y,Y,N,FE
+7032024,C,87,6,U,4.5,dark_brown,light_brown,dark_brown,none,N,Y,Y,M
+7032024,C,88,6,U,3,grey,yellow,brown,spotted_white,N,Y,Y,M
+7032024,C,89,6,U,5,brown,green,green,spotted_white,N,Y,Y,M
+7032024,C,90,6,U,5,green,brown,green,spotted_white,N,Y,N,F
+7032024,C,91,6,U,4.5,green,brown,green,spotted_white,Y,Y,N,F
+7032024,C,92,6,U,5,chocolate,green,chocolate,spotted_white,Y,Y,N,F
+7032024,C,93,6,U,4.5,chocolate,green,chocolate,spotted_white,N,Y,N,M
+7032024,C,94,6,U,5,green,grey,green,spotted_white,Y,Y,N,M
+7032024,C,95,6,U,5,green,brown,green,spotted_white,Y,Y,N,M
+7032024,C,96,6,U,5,green,brown,green,spotted_white,Y,Y,N,F
+7032024,C,97,6,U,5,brown,green,green,spotted_white,N,Y,N,F
+7032024,C,98,6,U,4,green,brown,green,spotted_white,N,Y,N,M
+7032024,C,99,6,U,4.5,brown,green,green,spotted_white,Y,Y,N,M
+7032024,C,100,6,U,3.5,chocolate,green,chocolate,spotted_white,Y,Y,N,M
+7032024,C,101,6,U,4,white ,dark_brown,brown,spotted_black,Y,N,N,M
+7032024,C,102,6,U,3,white ,dark_brown,brown,spotted_black,Y,N,N,M
+7032024,C,103,6,U,3,white ,dark_brown,brown,spotted_black,Y,N,N,M
+7032024,C,104,6,U,3.5,dark_brown,light_brown,brown,spotted_white,Y,Y,N,M
+7032024,C,105,6,U,4,dark_green,brown,green,spotted_white,N,Y,N,M
+7032024,C,106,6,U,3.5,dark_green,green,green,spotted_black,N,Y,N,M
+7032024,C,107,6,U,3,dark_brown,brown,brown,spotted_black,Y,Y,N,M
+7032024,C,108,6,U,2.5,dark_brown,yellow,brown,spotted_white,N,N,N,M
+7032024,C,109,6,U,2,green,brown,brown,none,Y,Y,N,M
+7032024,C,110,6,U,2.5,white ,brown,brown,spotted_white,N,N,N,M
+7032024,C,111,6,U,3,brown,dark_brown,brown,spotted_white,N,Y,N,M
+7032024,C,112,6,U,3.5,dark_brown,brown,brown,spotted_white,N,Y,N,M
+7032024,C,113,6,U,3,green,brown,green,spotted_white,N,Y,N,M
+7032024,C,114,6,U,2,green,brown,green,spotted_white,Y,Y,N,M
+7032024,C,115,6,U,1,green,brown,green,none,Y,Y,N,M
+7032024,C,116,6,U,1,green,brown,green,none,N,Y,N,M
+7032024,C,117,6,U,1.5,dark_brown,white,brown,spotted_black,N,N,N,M
+7032024,C,118,6,U,3,green,brown,green,spotted_white,N,Y,N,M
+7032024,C,119,6,U,3,green,brown,green,spotted_white,N,Y,N,M
+7032024,C,120,6,U,2,brown,light_brown,brown,none,N,Y,N,M
+7032024,C,121,6,U,2.5,chocolate,light_brown,tan,spotted_black,N,Y,N,M
+7032024,C,122,6,U,2,chocolate,chocolate,brown,none,N,N,N,M
+7032024,C,123,6,U,3,chocolate,chocolate,brown,none,N,N,N,M
+7032024,C,124,6,U,2.5,white ,dark_brown,brown,striped_white,Y,N,N,M
+7032024,D,125,7,M,12,dark_brown,green,brown,spotted_white,N,Y,Y,M
+7032024,D,126,7,M,10,grey,green,grey,spotted_white,N,Y,Y,M
+7032024,D,127,7,M,13,green,dark_green,green,spotted_white,Y,Y,Y,M
+7032024,D,128,7,M,12,chocolate,chocolate,chocolate,spotted_white,N,N,N,M
+7032024,D,129,7,M,9,chocolate,chocolate,chocolate,spotted_white,N,N,Y,M
+7032024,D,130,7,M,9,chocolate,chocolate,chocolate,none,N,N,N,M
+7032024,D,131,7,M,10,dark_brown,green,brown,none,N,Y,N,M
+7032024,D,132,7,M,10,green,light_green,green,spotted_white,Y,Y,N,M
+7032024,D,133,7,M,9,chocolate,chocolate,chocolate,none,N,N,N,M
+7032024,D,134,7,M,7,white ,orange,grey,none,Y,Y,N,M
+7032024,D,135,7,M,11,dark_green,green,green,none,N,N,N,M
+7032024,D,136,7,M,7,grey,green,green,spotted_grey,N,Y,N,F
+7032024,D,137,7,M,8,green,green,green,spotted_white,Y,Y,N,M
+7032024,D,138,7,M,5,green,grey,brown,none,N,Y,N,M
+7032024,D,139,7,M,6,green,grey,green,spotted_black,Y,Y,N,M
+7032024,D,140,7,M,6,green,green,green,spotted_black,Y,N,N,M
+7032024,D,141,7,M,4,grey,green,grey,none,N,Y,N,M
+7032024,D,142,7,M,4,green,green,green,none,N,Y,N,M
+7032024,D,143,7,M,3,green,light_green,green,none,N,Y,N,M
+7032024,D,144,7,M,3,grey,green,green,none,N,N,N,M
+7032024,D,145,7,M,3,green,brown,green,none,N,N,N,M
+7032024,D,146,7,M,4,green,light_green,grey,none,N,Y,N,M
+7032024,D,147,7,M,3,light_green,green,green,spotted_white,N,Y,N,M
+7032024,D,148,7,M,2,green,green,green,none,N,N,N,M
+7032024,D,149,7,M,3,green,green,green,none,N,N,N,M
+7032024,D,150,7,M,2,white ,white,brown,spotted_white,N,N,N,M
 7042024,AA,151,7,L,10,dark_green,green,green,spotted_black,Y,Y,Y,M
 7042024,AA,152,7,L,7.5,green,brown,green,spotted_black,Y,Y,Y,M
 7042024,AA,153,7,L,7,grey,green,grey,spotted_black,Y,Y,N,M
