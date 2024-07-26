@@ -14,45 +14,45 @@ library(reshape2)   # For reshaping data
 ```
 
 ```{r}
-getwd()
+#getwd()
 data<- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/vg_swallow_aggregate_by_site.csv")
 
-data<- data$site
+
 ```
 
 ```{r}
-# Load necessary libraries
+
 library(ggplot2)
 library(reshape2)
 
-# Convert data to long format
-data_long <- reshape2::melt(data, id.vars = 'site', variable.name = 'time_type', value.name = 'time')
+# Remove the unnamed column
+#data <- data[ , -1]
+
+# Convert site to factor
+data$site <- as.factor(data$site)
+
+# Melt the data for easier plotting with ggplot2
+data_melted <- melt(data, id.vars = "site", variable.name = "condition", value.name = "time")
 
 # Create the bar plot
-ggplot(data_long, aes(x = site, y = time, fill = time_type)) +
-  geom_bar(stat = 'identity', position = position_dodge()) +
-  labs(x = 'Site', y = 'Time (seconds)', title = 'Time In and Out of Nest by Site') +
-  scale_fill_manual(values = c('time_out_nest' = 'blue', 'time_in_nest' = 'orange')) +
-  theme_minimal()
-```
-```{r}
-# Load necessary libraries
-library(ggplot2)
-library(reshape2)
-
-
-# Convert data to long format
-data_long <- melt(data, id.vars = 'site', variable.name = 'time_type', value.name = 'time')
-
-# Ensure that time_type values match exactly with fill values
-data_long$time_type <- factor(data_long$time_type, levels = c('time_out_nest', 'time_in_nest'))
-
-# Create the bar plot
-ggplot(data_long, aes(x = site, y = time, fill = time_type)) +
-  geom_bar(stat = 'identity', position = position_dodge(), color = 'black') +
-  labs(x = 'Site', y = 'Time (seconds)', title = 'Time In and Out of Nest by Site') +
-  scale_fill_manual(values = c('time_out_nest' = 'blue', 'time_in_nest' = 'orange')) +
-  theme_minimal()
+ggplot(data_melted, aes(x=site, y=time, fill=condition)) +
+  geom_bar(stat="identity", position=position_dodge(width=0.8), width=0.7) +
+  scale_fill_manual(values = c("total_time_in_nest" = "orange", "total_time_out_nest" = "blue"),
+                    labels = c("total_time_in_nest" = "In the Nest", "total_time_out_nest" = "Out of the Nest")) +
+  labs(title="Times In and Out of the Nest by Site", x="Site", y="Total Time (seconds)") +
+  theme(
+    plot.title = element_text(hjust = 0.5, size=14),
+    axis.title.x = element_text(hjust = 0.5, size=14),
+    axis.title.y = element_text(hjust = 0.5, size=14),
+    legend.title = element_blank(),
+    legend.text = element_text(size=14),
+    axis.text = element_text(size=14),
+    panel.background = element_blank(),  # Remove grey background
+    panel.grid.major = element_blank(),  # Remove major grid lines
+    panel.grid.minor = element_blank(),  # Remove minor grid lines
+    axis.line = element_line(colour = "black")  # Add axis lines
+  ) +
+  scale_y_continuous(limits = c(0, 18000), breaks = seq(0, 18000, by = 2000))
 
 ```
 
