@@ -1,0 +1,58 @@
+---
+title: paired bar 
+---
+
+#update 7.15
+```{r}
+# Load necessary libraries
+library(vegan)      # For diversity analysis
+library(ggplot2)    # For basic plotting
+library(tidyr)      # For data manipulation
+library(dplyr)      # For data manipulation
+library(ggpubr)     # For arranging multiple plots
+library(reshape2)   # For reshaping data
+```
+
+```{r}
+getwd()
+data<- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/vg_swallow_aggregate_by_site.csv")
+
+data<- data$site
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(reshape2)
+
+# Convert data to long format
+data_long <- reshape2::melt(data, id.vars = 'site', variable.name = 'time_type', value.name = 'time')
+
+# Create the bar plot
+ggplot(data_long, aes(x = site, y = time, fill = time_type)) +
+  geom_bar(stat = 'identity', position = position_dodge()) +
+  labs(x = 'Site', y = 'Time (seconds)', title = 'Time In and Out of Nest by Site') +
+  scale_fill_manual(values = c('time_out_nest' = 'blue', 'time_in_nest' = 'orange')) +
+  theme_minimal()
+```
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(reshape2)
+
+
+# Convert data to long format
+data_long <- melt(data, id.vars = 'site', variable.name = 'time_type', value.name = 'time')
+
+# Ensure that time_type values match exactly with fill values
+data_long$time_type <- factor(data_long$time_type, levels = c('time_out_nest', 'time_in_nest'))
+
+# Create the bar plot
+ggplot(data_long, aes(x = site, y = time, fill = time_type)) +
+  geom_bar(stat = 'identity', position = position_dodge(), color = 'black') +
+  labs(x = 'Site', y = 'Time (seconds)', title = 'Time In and Out of Nest by Site') +
+  scale_fill_manual(values = c('time_out_nest' = 'blue', 'time_in_nest' = 'orange')) +
+  theme_minimal()
+
+```
+
