@@ -1,0 +1,195 @@
+---
+title: *Hemigrapsus* exploratory statistics
+---
+
+```{r}
+
+# Load libraries
+library(vegan)      # For diversity analysis
+library(ggplot2)    # For basic plotting
+library(tidyr)      # For data manipulation
+library(dplyr)      # For data manipulation
+library(ggpubr)     # For arranging multiple plots
+library(reshape2)   # For reshaping data
+```
+
+```{r}
+
+#getwd()
+
+# Read-in the data
+data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/hemi_complete.csv")
+```
+
+```{r}
+
+# Explore data
+#head(data)
+#summary(data)
+```
+
+# Visualizations of the data
+```{r}
+
+# Distribution of Carapace Width
+ggplot(data, aes(x = carapace_width)) +
+  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+  labs(title = "Distribution of Carapace Width", x = "Carapace Width (mm)", y = "Frequency")
+
+```
+
+```{r}
+
+# Distribution of Primary Colors
+ggplot(data, aes(x = primary_color)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Primary Colors", x = "Primary Color", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+
+# Distribution of Carapace Size Across Tidal Zones
+ggplot(data, aes(x = carapace_width, fill = tidal_zone)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Distribution of Carapace Size Across Tidal Zones", x = "Carapace Width (mm)", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+
+# Distribution of Primary Colors Across Tidal Zones
+ggplot(data, aes(x = primary_color, fill = tidal_zone)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Distribution of Primary Colors Across Tidal Zones", x = "Primary Color", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+
+# Distribution of Leg Patterns
+ggplot(data, aes(x = leg_pattern)) +
+  geom_bar(fill = "pink", color = "black") +
+  labs(title = "Distribution of Leg Patterns", x = "Leg Pattern", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+
+# Distribution of Leg Patterns Across Tidal Zones
+ggplot(data, aes(x = leg_pattern, fill = tidal_zone)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Distribution of Leg Patterns Across Tidal Zones", x = "Leg Pattern", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+```{r}
+
+# Presence of Leg Hair
+ggplot(data, aes(x = leg_hair)) +
+  geom_bar(fill = "orange", color = "black") +
+  labs(title = "Presence of Leg Hair", x = "Leg Hair", y = "Count")
+```
+
+```{r}
+
+# Presence of Mottled Carapace
+ggplot(data, aes(x = mottled)) +
+  geom_bar(fill = "red", color = "black") +
+  labs(title = "Mottled Carapace", x = "Mottled", y = "Count")
+```
+
+```{r}
+
+# Presence of Spotted Claws
+ggplot(data, aes(x = spotted_claws)) +
+  geom_bar(fill = "yellow", color = "black") +
+  labs(title = "Spotted Claws", x = "Spotted Claws", y = "Count")
+```
+
+```{r}
+
+# Counts of Crabs by Sex
+ggplot(data, aes(x = sex)) +
+  geom_bar(fill = "purple", color = "black") +
+  labs(title = "Counts of Crabs by Sex", x = "Sex", y = "Count")
+
+```
+
+# Stats
+```{r}
+
+# Chi-Square Test for Categorical Variables
+chi_square_test <- function(df, col1, col2) {
+  tbl <- table(df[[col1]], df[[col2]])
+  chisq.test(tbl)
+}
+
+# Chi-Square Tests
+chi_square_results <- list(
+  "Leg Hair vs Tidal Zone" = chi_square_test(data, "leg_hair", "tidal_zone"),
+  "Mottled vs Tidal Zone" = chi_square_test(data, "mottled", "tidal_zone"),
+  "Spotted Claws vs Tidal Zone" = chi_square_test(data, "spotted_claws", "tidal_zone"),
+  "Leg Hair vs Sex" = chi_square_test(data, "leg_hair", "sex"),
+  "Mottled vs Sex" = chi_square_test(data, "mottled", "sex"),
+  "Spotted Claws vs Sex" = chi_square_test(data, "spotted_claws", "sex")
+)
+
+chi_square_results
+
+
+```
+
+```{r}
+
+# ANOVA for Continuous Variables
+anova_test <- function(df, continuous_var, categorical_var) {
+  aov(df[[continuous_var]] ~ df[[categorical_var]], data = df)
+}
+
+# ANOVA Tests
+anova_results <- list(
+  "Carapace Width vs Tidal Zone" = summary(anova_test(data, "carapace_width", "tidal_zone")),
+  "Carapace Width vs Sex" = summary(anova_test(data, "carapace_width", "sex"))
+)
+
+anova_results
+
+```
+
+# Unique color combinations
+```{r}
+
+# Creating a new column for color combinations
+crab_data <- data %>%
+  mutate(color_combination = paste(primary_color, secondary_color, sep = "_"))
+
+# Counting the occurrences of each color combination
+color_combination_counts <- crab_data %>%
+  count(color_combination, sort = TRUE)
+
+# Plotting the color combinations and their frequencies
+ggplot(color_combination_counts, aes(x = reorder(color_combination, n), y = n)) +
+  geom_bar(stat = "identity", fill = "purple", color = "black") +
+  labs(title = "Color Combinations and Their Frequencies", x = "Color Combination", y = "Frequency") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Number of unique color combinations
+unique_color_combinations <- nrow(color_combination_counts)
+unique_color_combinations
+
+# Exporting the unique color combinations to a CSV file
+write.csv(color_combination_counts, "unique_color_combinations.csv", row.names = FALSE)
+
+```
+
+```{r}
+
+
+```
+
