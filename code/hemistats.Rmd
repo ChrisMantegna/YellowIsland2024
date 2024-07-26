@@ -147,39 +147,46 @@ chi_square_results
 
 ```{r}
 
-# ANOVA for Continuous Variables
-anova_test <- function(df, continuous_var, categorical_var) {
-  aov(df[[continuous_var]] ~ df[[categorical_var]], data = df)
+shapiro.test(data$carapace_width)
+```
+
+```{r}
+
+# Kruskal-Wallis Test for Continuous Variables
+kruskal_test <- function(df, continuous_var, categorical_var) {
+  kruskal.test(df[[continuous_var]] ~ df[[categorical_var]], data = df)
 }
 
-# ANOVA Tests
-anova_results <- list(
-  "Carapace Width vs Tidal Zone" = summary(anova_test(data, "carapace_width", "tidal_zone")),
-  "Carapace Width vs Sex" = summary(anova_test(data, "carapace_width", "sex"))
+# Kruskal-Wallis Tests
+kruskal_results <- list(
+  "Carapace Width vs Tidal Zone" = kruskal_test(data, "carapace_width", "tidal_zone"),
+  "Carapace Width vs Sex" = kruskal_test(data, "carapace_width", "sex")
 )
 
-anova_results
+kruskal_results
 
 ```
 
 ```{r}
 
-# ANOVA for Carapace Width vs Sex
-anova_sex <- aov(carapace_width ~ sex, data = data)
-summary(anova_sex)
+# Kruskal-Wallis Post Hoc Test
+kruskal_posthoc <- function(df, continuous_var, categorical_var) {
+  pairwise.wilcox.test(df[[continuous_var]], df[[categorical_var]], p.adjust.method = "bonferroni")
+}
 
-# ANOVA for Carapace Width vs Tidal Zone
-anova_tidal_zone <- aov(carapace_width ~ tidal_zone, data = data)
-summary(anova_tidal_zone)
-```
+# Kruskal-Wallis Tests and Post Hoc Analysis
+kruskal_results <- list(
+  "Carapace Width vs Tidal Zone" = list(
+    test = kruskal_test(data, "carapace_width", "tidal_zone"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "tidal_zone")
+  ),
+  "Carapace Width vs Sex" = list(
+    test = kruskal_test(data, "carapace_width", "sex"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "sex")
+  )
+)
 
-```{r}
-
-  posthoc_sex <- TukeyHSD(anova_sex)
-  print(posthoc_sex)
-
-  posthoc_tidal_zone <- TukeyHSD(anova_tidal_zone)
-  print(posthoc_tidal_zone)
+kruskal_results
 
 ```
 
