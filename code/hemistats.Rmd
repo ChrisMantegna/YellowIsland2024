@@ -22,7 +22,7 @@ data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/hemi_complete
 ```
 
 ```{r}
-
+  
 # Explore data
 #head(data)
 summary(data)
