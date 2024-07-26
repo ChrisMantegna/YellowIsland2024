@@ -162,6 +162,27 @@ anova_results
 
 ```
 
+```{r}
+
+# ANOVA for Carapace Width vs Sex
+anova_sex <- aov(carapace_width ~ sex, data = data)
+summary(anova_sex)
+
+# ANOVA for Carapace Width vs Tidal Zone
+anova_tidal_zone <- aov(carapace_width ~ tidal_zone, data = data)
+summary(anova_tidal_zone)
+```
+
+```{r}
+
+  posthoc_sex <- TukeyHSD(anova_sex)
+  print(posthoc_sex)
+
+  posthoc_tidal_zone <- TukeyHSD(anova_tidal_zone)
+  print(posthoc_tidal_zone)
+
+```
+
 # Unique color combinations
 ```{r}
 
