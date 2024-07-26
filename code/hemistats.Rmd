@@ -25,10 +25,11 @@ data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/hemi_complete
 
 # Explore data
 #head(data)
-#summary(data)
+summary(data)
 ```
 
 # Visualizations of the data
+
 ```{r}
 
 # Distribution of Carapace Width
@@ -87,7 +88,6 @@ ggplot(data, aes(x = leg_pattern, fill = tidal_zone)) +
 
 ```
 
-
 ```{r}
 
 # Presence of Leg Hair
@@ -122,6 +122,7 @@ ggplot(data, aes(x = sex)) +
 ```
 
 # Stats
+
 ```{r}
 
 # Chi-Square Test for Categorical Variables
@@ -137,7 +138,8 @@ chi_square_results <- list(
   "Spotted Claws vs Tidal Zone" = chi_square_test(data, "spotted_claws", "tidal_zone"),
   "Leg Hair vs Sex" = chi_square_test(data, "leg_hair", "sex"),
   "Mottled vs Sex" = chi_square_test(data, "mottled", "sex"),
-  "Spotted Claws vs Sex" = chi_square_test(data, "spotted_claws", "sex")
+  "Spotted Claws vs Sex" = chi_square_test(data, "spotted_claws", "sex"),
+  "Spotted Claws vs Leg Hair" = chi_square_test(data, "spotted_claws", "leg_hair")
 )
 
 chi_square_results
@@ -160,7 +162,8 @@ kruskal_test <- function(df, continuous_var, categorical_var) {
 # Kruskal-Wallis Tests
 kruskal_results <- list(
   "Carapace Width vs Tidal Zone" = kruskal_test(data, "carapace_width", "tidal_zone"),
-  "Carapace Width vs Sex" = kruskal_test(data, "carapace_width", "sex")
+  "Carapace Width vs Sex" = kruskal_test(data, "carapace_width", "sex"),
+  "Carapace Width vs Leg Hair" = kruskal_test(data, "carapace_width", "leg_hair")
 )
 
 kruskal_results
@@ -183,6 +186,10 @@ kruskal_results <- list(
   "Carapace Width vs Sex" = list(
     test = kruskal_test(data, "carapace_width", "sex"),
     posthoc = kruskal_posthoc(data, "carapace_width", "sex")
+  ),
+  "Carapace Width vs Leg Hair" = list(
+    test = kruskal_test(data, "carapace_width", "leg_hair"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "leg_hair")
   )
 )
 
@@ -191,6 +198,7 @@ kruskal_results
 ```
 
 # Unique color combinations
+
 ```{r}
 
 # Creating a new column for color combinations
@@ -220,4 +228,3 @@ write.csv(color_combination_counts, "unique_color_combinations.csv", row.names =
 
 
 ```
-
