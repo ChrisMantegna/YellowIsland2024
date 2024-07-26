@@ -225,6 +225,6 @@ write.csv(color_combination_counts, "unique_color_combinations.csv", row.names =
 ```
 
 ```{r}
-
+#group the crabs by 
 
 ```
