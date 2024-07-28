@@ -2,6 +2,7 @@
 title: *Hemigrapsus* exploratory statistics
 ---
 
+
 ```{r}
 
 # Load libraries
@@ -325,6 +326,24 @@ ggplot(data, aes(x = carapace_width, fill = spotted_claws)) +
 
 ```
 
+## Tidal Zone Distribution by Presence of Claw Spots
+```{r}
+
+# Calculate the counts for each category
+tidal_zone_counts <- data %>%
+  group_by(tidal_zone, spotted_claws) %>%
+  tally()
+
+# Plotting the stacked bar chart with counts
+ggplot(tidal_zone_counts, aes(x = tidal_zone, y = n, fill = spotted_claws)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Tidal Zone Distribution by Presence of Claw Spots", x = "Tidal Zone", y = "Frequency") +
+  scale_fill_manual(name = "Claw Spots", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Claw Spots", "Without Claw Spots")) +
+  theme_minimal()
+
+```
+
 ```{r}
 
 library(dplyr)
@@ -344,7 +363,7 @@ print(sizes)
 ```
 
 
-## Distribution of Crabs Based on Claw Spots and Leg Hair
+## Distribution of Crabs Based on Claw Spots and Leg Hair, Pie Chart
 ```{r}
 
 library(ggplot2)
