@@ -14,9 +14,9 @@ library(reshape2)   # For reshaping data
 ```
 
 ```{r}
+
 #getwd()
 data<- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/vg_swallow_aggregate_by_site.csv")
-
 
 ```
 

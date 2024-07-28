@@ -28,8 +28,9 @@ data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/hemi_complete
 summary(data)
 ```
 
-# Visualizations of the data
+# Visualizations for All Crabs
 
+## Carapace Width Distribution
 ```{r}
 
 # Distribution of Carapace Width
@@ -39,6 +40,7 @@ ggplot(data, aes(x = carapace_width)) +
 
 ```
 
+## Primary Color Distribution
 ```{r}
 
 # Distribution of Primary Colors
@@ -49,6 +51,7 @@ ggplot(data, aes(x = primary_color)) +
 
 ```
 
+## Carapace Size Across Tidal Zones
 ```{r}
 
 # Distribution of Carapace Size Across Tidal Zones
@@ -58,6 +61,7 @@ ggplot(data, aes(x = carapace_width, fill = tidal_zone)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+## Primary Colors Across Tidal Zones
 ```{r}
 
 # Distribution of Primary Colors Across Tidal Zones
@@ -68,9 +72,9 @@ ggplot(data, aes(x = primary_color, fill = tidal_zone)) +
 
 ```
 
+##  Distribution of Leg Patterns
 ```{r}
 
-# Distribution of Leg Patterns
 ggplot(data, aes(x = leg_pattern)) +
   geom_bar(fill = "pink", color = "black") +
   labs(title = "Distribution of Leg Patterns", x = "Leg Pattern", y = "Count") +
@@ -78,6 +82,7 @@ ggplot(data, aes(x = leg_pattern)) +
 
 ```
 
+## Distribution of Leg Patterns Across Tidal Zones
 ```{r}
 
 # Distribution of Leg Patterns Across Tidal Zones
@@ -88,117 +93,41 @@ ggplot(data, aes(x = leg_pattern, fill = tidal_zone)) +
 
 ```
 
+## Leg Hair Presence
 ```{r}
 
-# Presence of Leg Hair
 ggplot(data, aes(x = leg_hair)) +
   geom_bar(fill = "orange", color = "black") +
   labs(title = "Presence of Leg Hair", x = "Leg Hair", y = "Count")
 ```
 
+## Presence of Mottling
 ```{r}
 
-# Presence of Mottled Carapace
 ggplot(data, aes(x = mottled)) +
   geom_bar(fill = "red", color = "black") +
   labs(title = "Mottled Carapace", x = "Mottled", y = "Count")
 ```
 
+## Presence of Spotted Claws
 ```{r}
 
-# Presence of Spotted Claws
 ggplot(data, aes(x = spotted_claws)) +
   geom_bar(fill = "yellow", color = "black") +
   labs(title = "Spotted Claws", x = "Spotted Claws", y = "Count")
 ```
 
+## Counts of Crabs by Sex
 ```{r}
 
-# Counts of Crabs by Sex
+
 ggplot(data, aes(x = sex)) +
   geom_bar(fill = "purple", color = "black") +
   labs(title = "Counts of Crabs by Sex", x = "Sex", y = "Count")
 
 ```
 
-# Stats
-
-```{r}
-
-# Chi-Square Test for Categorical Variables
-chi_square_test <- function(df, col1, col2) {
-  tbl <- table(df[[col1]], df[[col2]])
-  chisq.test(tbl)
-}
-
-# Chi-Square Tests
-chi_square_results <- list(
-  "Leg Hair vs Tidal Zone" = chi_square_test(data, "leg_hair", "tidal_zone"),
-  "Mottled vs Tidal Zone" = chi_square_test(data, "mottled", "tidal_zone"),
-  "Spotted Claws vs Tidal Zone" = chi_square_test(data, "spotted_claws", "tidal_zone"),
-  "Leg Hair vs Sex" = chi_square_test(data, "leg_hair", "sex"),
-  "Mottled vs Sex" = chi_square_test(data, "mottled", "sex"),
-  "Spotted Claws vs Sex" = chi_square_test(data, "spotted_claws", "sex"),
-  "Spotted Claws vs Leg Hair" = chi_square_test(data, "spotted_claws", "leg_hair")
-)
-
-chi_square_results
-
-
-```
-
-```{r}
-
-shapiro.test(data$carapace_width)
-```
-
-```{r}
-
-# Kruskal-Wallis Test for Continuous Variables
-kruskal_test <- function(df, continuous_var, categorical_var) {
-  kruskal.test(df[[continuous_var]] ~ df[[categorical_var]], data = df)
-}
-
-# Kruskal-Wallis Tests
-kruskal_results <- list(
-  "Carapace Width vs Tidal Zone" = kruskal_test(data, "carapace_width", "tidal_zone"),
-  "Carapace Width vs Sex" = kruskal_test(data, "carapace_width", "sex"),
-  "Carapace Width vs Leg Hair" = kruskal_test(data, "carapace_width", "leg_hair")
-)
-
-kruskal_results
-
-```
-
-```{r}
-
-# Kruskal-Wallis Post Hoc Test
-kruskal_posthoc <- function(df, continuous_var, categorical_var) {
-  pairwise.wilcox.test(df[[continuous_var]], df[[categorical_var]], p.adjust.method = "bonferroni")
-}
-
-# Kruskal-Wallis Tests and Post Hoc Analysis
-kruskal_results <- list(
-  "Carapace Width vs Tidal Zone" = list(
-    test = kruskal_test(data, "carapace_width", "tidal_zone"),
-    posthoc = kruskal_posthoc(data, "carapace_width", "tidal_zone")
-  ),
-  "Carapace Width vs Sex" = list(
-    test = kruskal_test(data, "carapace_width", "sex"),
-    posthoc = kruskal_posthoc(data, "carapace_width", "sex")
-  ),
-  "Carapace Width vs Leg Hair" = list(
-    test = kruskal_test(data, "carapace_width", "leg_hair"),
-    posthoc = kruskal_posthoc(data, "carapace_width", "leg_hair")
-  )
-)
-
-kruskal_results
-
-```
-
-# Unique color combinations
-
+## Unique color combinations
 ```{r}
 
 # Creating a new column for color combinations
@@ -224,26 +153,224 @@ write.csv(color_combination_counts, "unique_color_combinations.csv", row.names =
 
 ```
 
-# Slide 13 - Chi-squared table to go with pictures of crabs
+# Stats
+## Chi-squared
 ```{r}
-#print the chart of p-values, residuals and then add pictures to illustrate the significant factors
+
+# Chi-Square Test for Categorical Variables
+chi_square_test <- function(df, col1, col2) {
+  tbl <- table(df[[col1]], df[[col2]])
+  chisq.test(tbl)
+}
+
+# Chi-Square Tests
+chi_square_results <- list(
+  "Leg Hair vs Tidal Zone" = chi_square_test(data, "leg_hair", "tidal_zone"),
+  "Mottled vs Tidal Zone" = chi_square_test(data, "mottled", "tidal_zone"),
+  "Spotted Claws vs Tidal Zone" = chi_square_test(data, "spotted_claws", "tidal_zone"),
+  "Leg Hair vs Sex" = chi_square_test(data, "leg_hair", "sex"),
+  "Mottled vs Sex" = chi_square_test(data, "mottled", "sex"),
+  "Spotted Claws vs Sex" = chi_square_test(data, "spotted_claws", "sex"),
+  "Spotted Claws vs Leg Hair" = chi_square_test(data, "spotted_claws", "leg_hair")
+)
+
+chi_square_results
+
+# Leg hair v tidal zone: X-squared = 8.9439, df = 2, p-value = 0.01143
+# Mottled v tidal zone: X-squared = 5.9447, df = 2, p-value = 0.05118
+# Spotted claw v tidal zone:X-squared = 1.3445, df = 2, p-value = 0.5106 NOT SIGNIFICANT
+# Leg hair v sex: X-squared = 1.2368, df = 2, p-value = 0.5388 NOT SIGNIFICANT
+# Mottled v sex: X-squared = 1.643, df = 2, p-value = 0.4398 NOT SIGNIFICANT
+# Spotted  claw v sex: X-squared = 3.7074, df = 2, p-value = 0.1567 OT SIGNIFICANT
+# Spotted claw v leg hair: X-squared = 4.057, df = 1, p-value = 0.04399 
+
+
+```
+
+## Kruskal- Wallis + Post hoc
+```{r}
+
+# Kruskal-Wallis Post Hoc Test
+kruskal_posthoc <- function(df, continuous_var, categorical_var) {
+  pairwise.wilcox.test(df[[continuous_var]], df[[categorical_var]], p.adjust.method = "bonferroni")
+}
+
+# Kruskal-Wallis Tests and Post Hoc Analysis
+kruskal_results <- list(
+  "Carapace Width vs Tidal Zone" = list(
+    test = kruskal_test(data, "carapace_width", "tidal_zone"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "tidal_zone")
+  ),
+  "Carapace Width vs Sex" = list(
+    test = kruskal_test(data, "carapace_width", "sex"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "sex")
+  ),
+  "Carapace Width vs Leg Hair" = list(
+    test = kruskal_test(data, "carapace_width", "leg_hair"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "leg_hair")
+  ),
+  "Carapace Width vs Claw Spots" = list(
+    test = kruskal_test(data, "carapace_width", "spotted_claws"),
+    posthoc = kruskal_posthoc(data, "carapace_width", "spotted_claws")
+)
+)
+
+kruskal_results
 
 ```
 
 # Leg Hair
+## Make data frames
 ```{r}
 
 #Making the df for plotting
-crabs_with_leg_hair <- subset(data, leg_hair == 'Y')
-crabs_without_leg_hair <- subset(data, leg_hair == 'N')
+#crabs_with_leg_hair <- subset(data, leg_hair == 'Y')
+#crabs_without_leg_hair <- subset(data, leg_hair == 'N')
 
-summary(crabs_with_leg_hair) # Mean carapace width is 6.9 (above total average)
-summary(crabs_without_leg_hair) # Mean carapace width is 5.429 (below total average)
+#summary(crabs_with_leg_hair) # Mean carapace width is 6.9 (above total average)
+#summary(crabs_without_leg_hair) # Mean carapace width is 5.429 (below total average)
+
+```
+
+## Carapace Width Distribution by Presence of Leg Hair (brown/ dark gold is where the two categories overlap)
+```{r}
+
+#Carapace Width
+# With Leg Hair: The mean carapace width is 6.9 with a standard deviation of 2.33. The range is from 1.0 to 13.0.
+# Without Leg Hair: The mean carapace width is 5.43 with a standard deviation of 2.85. The range is from 1.0 to 16.5. 
+# Based on the KW test and post hoc, there is a significant difference in size between crabs with leg hair and crabs without.
+
+ggplot() +
+  geom_histogram(data = crabs_with_leg_hair, aes(x = carapace_width, fill = "With Leg Hair"), binwidth = 1, alpha = 0.5) +
+  geom_histogram(data = crabs_without_leg_hair, aes(x = carapace_width, fill = "Without Leg Hair"), binwidth = 1, alpha = 0.5) +
+  labs(title = "Carapace Width Distribution", x = "Carapace Width", y = "Frequency") +
+  scale_fill_manual(name = "Leg Hair", values = c("With Leg Hair" = "darkorchid4", "Without Leg Hair" = "gold2")) +
+  theme_minimal()
+
+```
+
+## Tidal Zone Distribution by Presence of Leg Hair
+```{r}
+
+# Tidal Zone
+# With Leg Hair: Majority are found in LOW tidal zone (61 out of 145).
+# Without Leg Hair: Majority are found in MID tidal zone(60 out of 162)
+# Based on the chi- squared, the positve relationship between L tide and leg hair is significant. Explain this in your talk.
+# Frequency doesn't equal 100 because each zone is out of 102, except low and that is out of 103
+
+tidal_zone_counts <- data %>%
+  group_by(tidal_zone, leg_hair) %>%
+  tally()
+
+ggplot(tidal_zone_counts, aes(x = tidal_zone, y = n, fill = leg_hair)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Tidal Zone Distribution", x = "Tidal Zone", y = "Frequency") +
+  scale_fill_manual(name = "Leg Hair", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Leg Hair", "Without Leg Hair")) +
+  theme_minimal()
+
+
+```
+
+## Spotted Claw Distribution by Presence of Leg Hair
+```{r}
+
+#Spotted Claws:
+# With Leg Hair: Most have NO spotted claws (90 out of 145).
+#Without Leg Hair: Most have NO spotted claws (119 out of 162).
+# Based on the chi-squared results we have a significant positive relationship
+
+spotted_claws_counts <- data %>%
+  group_by(spotted_claws, leg_hair) %>%
+  tally()
+
+ggplot(spotted_claws_counts, aes(x = spotted_claws, y = n, fill = leg_hair)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Spotted Claws Distribution", x = "Spotted Claws", y = "Frequency") +
+  scale_fill_manual(name = "Leg Hair", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Leg Hair", "Without Leg Hair")) +
+  theme_minimal()
+
+
+```
+## Sex Distribution by Presence of Leg Hair
+```{r}
+# Sex Distribution
+
+sex_counts <- data %>%
+  group_by(sex, leg_hair) %>%
+  tally()
+
+ggplot(sex_counts, aes(x = sex, y = n, fill = leg_hair)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Sex Distribution", x = "Sex", y = "Frequency") +
+  scale_fill_manual(name = "Leg Hair", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Leg Hair", "Without Leg Hair")) +
+  theme_minimal()
+
+```
+
+# Claw Spots
+## Carapace Width Distribution by Presence of Spotted Claws
+```{r}
+# With Spotted Claws: The mean carapace width is 7.79 with a standard deviation of 2.68. The range is from 3.0 to 16.5
+# Without Spotted Claws: The mean carapace width is 5.43 with a standard deviation of 2.36. The range is from 1.0 to 12.5. 
+# Based on the KW test and post hoc, there is a significant difference in size between crabs with claw spots and crabs without.
+
+ggplot(data, aes(x = carapace_width, fill = spotted_claws)) +
+  geom_histogram(binwidth = 1, alpha = 0.5, position = "identity") +
+  labs(title = "Carapace Width Distribution Based on Spotted Claws", x = "Carapace Width", y = "Frequency") +
+  scale_fill_manual(name = "Spotted Claws", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Spotted Claws", "Without Spotted Claws")) +
+  theme_minimal()
 
 ```
 
 ```{r}
 
+library(dplyr)
+
+# Calculate the counts for each category
+both_claw_spots_and_leg_hair <- data %>% filter(spotted_claws == 'Y' & leg_hair == 'Y') %>% nrow()
+neither_claw_spots_nor_leg_hair <- data %>% filter(spotted_claws == 'N' & leg_hair == 'N') %>% nrow()
+leg_hair_without_claw_spots <- data %>% filter(spotted_claws == 'N' & leg_hair == 'Y') %>% nrow()
+claw_spots_without_leg_hair <- data %>% filter(spotted_claws == 'Y' & leg_hair == 'N') %>% nrow()
+
+# Create the sizes object
+sizes <- c(both_claw_spots_and_leg_hair, neither_claw_spots_nor_leg_hair, leg_hair_without_claw_spots, claw_spots_without_leg_hair)
+
+# Print the sizes to check the values
+print(sizes)
+
+```
+
+
+## Distribution of Crabs Based on Claw Spots and Leg Hair
+```{r}
+
+library(ggplot2)
+
+# Define the data
+sizes <- c(55, 119, 90, 43)  # counts for each category
+labels <- c('Both Claw Spots and Leg Hair', 'Neither Claw Spots nor Leg Hair', 'Leg Hair without Claw Spots', 'Claw Spots without Leg Hair')
+colors <- c('#8B0000', '#8B4513', '#CDAD00', '#68228B')  # rust, light brown, gold, purple
+
+# Create a data frame
+pie_data <- data.frame(
+  category = factor(labels, levels = labels),  # Ensures the order is maintained
+  count = sizes
+)
+
+# Calculate percentages
+pie_data$percentage <- round(pie_data$count / sum(pie_data$count) * 100, 1)
+
+# Plot the pie chart
+ggplot(pie_data, aes(x = "", y = percentage, fill = category)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = setNames(colors, labels)) +  # Match colors to labels
+  geom_text(aes(label = paste0(percentage, "%")), position = position_stack(vjust = 0.5), color = "white") +
+  theme_void() +
+  labs(title = "Distribution of Crabs Based on Claw Spots and Leg Hair")
 
 ```
 
