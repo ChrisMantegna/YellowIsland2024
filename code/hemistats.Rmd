@@ -230,6 +230,18 @@ write.csv(color_combination_counts, "unique_color_combinations.csv", row.names =
 
 ```
 
+# Leg Hair
+```{r}
+
+#Making the df for plotting
+crabs_with_leg_hair <- subset(data, leg_hair == 'Y')
+crabs_without_leg_hair <- subset(data, leg_hair == 'N')
+
+summary(crabs_with_leg_hair) # Mean carapace width is 6.9 (above total average)
+summary(crabs_without_leg_hair) # Mean carapace width is 5.429 (below total average)
+
+```
+
 ```{r}
 
 
