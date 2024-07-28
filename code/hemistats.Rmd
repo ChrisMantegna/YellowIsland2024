@@ -224,7 +224,14 @@ write.csv(color_combination_counts, "unique_color_combinations.csv", row.names =
 
 ```
 
+# Slide 13 - Chi-squared table to go with pictures of crabs
 ```{r}
-#group the crabs by 
+#print the chart of p-values, residuals and then add pictures to illustrate the significant factors
 
 ```
+
+```{r}
+
+
+```
+
