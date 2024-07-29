@@ -1,0 +1,61 @@
+---
+title: orca stats
+---
+
+```{r}
+
+# load libraries
+library(tidydr)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+# load data
+
+data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca.csv")
+data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca_cleaned.csv")
+
+```
+
+```{r}
+
+# review data
+summary(data)
+```
+
+```{r}
+# clean up the empty cells
+
+
+# replace empty cells with 'unk' for unknown
+data <- data %>%
+  mutate(Pod = ifelse(is.na(Pod) | Pod == "", "unk", Pod),
+         LikelyPod = ifelse(is.na(LikelyPod) | LikelyPod == "", "unk", LikelyPod))
+
+# save 'cleaned' csv
+write.csv(data, "/Users/cmantegna/Documents/YellowIsland2024/data/orca_cleaned.csv", row.names = FALSE)
+
+head(data)
+
+```
+
+```{r}
+
+# sightings breakdown by Pod column
+
+# Count the number of sightings for each Pod value
+pod_counts <- data_cleaned %>%
+  group_by(Pod) %>%
+  summarise(Number_of_Sightings = n()) %>%
+  arrange(desc(Number_of_Sightings))
+
+# Display the first few rows to verify the counts
+print(head(pod_counts))
+
+# Write the counts to a new CSV file
+write.csv(pod_counts, "/Users/cmantegna/Documents/YellowIsland2024/output/orca_sighting_grouped.csv")
+
+
+```
+
