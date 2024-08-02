@@ -6,14 +6,14 @@ title: orca stats
 
 # load libraries
 library(tidydr)
-library(dplyr)
-library(ggplot2)
+
 ```
 
 ```{r}
+
 # load data
 
-data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca.csv")
+#data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca.csv")
 data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca_cleaned.csv")
 
 ```
@@ -21,40 +21,162 @@ data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/orca_
 ```{r}
 
 # review data
-summary(data)
+head(data_cleaned)
 ```
 
+# Don't repeat this step unless you are working with the raw data! This will override the updated cleaned data frame. The code is maintained for trnasparency in the process. All commented to avoid accidental run.
 ```{r}
 # clean up the empty cells
 
 
 # replace empty cells with 'unk' for unknown
-data <- data %>%
-  mutate(Pod = ifelse(is.na(Pod) | Pod == "", "unk", Pod),
-         LikelyPod = ifelse(is.na(LikelyPod) | LikelyPod == "", "unk", LikelyPod))
+#data <- data %>%
+#  mutate(Pod = ifelse(is.na(Pod) | Pod == "", "unk", Pod),
+#         LikelyPod = ifelse(is.na(LikelyPod) | LikelyPod == "", "unk", LikelyPod))
 
 # save 'cleaned' csv
-write.csv(data, "/Users/cmantegna/Documents/YellowIsland2024/data/orca_cleaned.csv", row.names = FALSE)
+#write.csv(data, "/Users/cmantegna/Documents/YellowIsland2024/data/orca_cleaned.csv", row.names = FALSE)
 
-head(data)
+#head(data)
+
+```
+
+# Don't repeat this step unless you are working with the raw data! This will override the updated cleaned data frame. The code is maintained for trnasparency in the process. All commented to avoid accidental run.
+```{r}
+# general breakdown that only includes the Pod break, not the year or quadrant.
+
+# sightings breakdown by Pod column
+
+# count sightings for each Pod value
+#pod_counts <- data_cleaned %>%
+#  group_by(Pod) %>%
+#  summarise(Number_of_Sightings = n()) %>%
+#  arrange(desc(Number_of_Sightings))
+
+# check your new table
+#head(pod_counts)
+
+# create a new csv with the cleaned data
+#write.csv(pod_counts, "/Users/cmantegna/Documents/YellowIsland2024/output/orca_sighting_grouped.csv")
+
+
+```
+
+# Create a new, cleaned data frame with workable Pod categories while maintaining the rest of the data. Due to inconsistencies in data entry, several values in the Pod column represent the same thing, so we'll collapse them into 4 easy to understand value types and move forward.
+```{r}
+
+# load any packages needed for this block
+library(dplyr)
+library(readr)
+
+
+# Define a function to categorize the pod groups (did this with ChatGPT help)
+categorize_pod <- function(pod) {
+  pod_lower <- tolower(pod)
+  if (pod_lower == "unk") {
+    return("Unknown")
+  } else if (pod_lower %in% c("t", "t?")) {
+    return("Transients")
+  } else if (pod_lower %in% c("srkw", "sr", "srs", "srs?")) {
+    return("Southern Residents")
+  } else {
+    return("J,K,L Pod")
+  }
+}
+
+
+# Apply the function to create a new Pod_Group column (did this with ChatGPT help)
+data <- data_cleaned %>%
+  mutate(Pod_Group = sapply(Pod, categorize_pod))
+
+# Group the data by the required columns
+collapsed_data <- data %>%
+  group_by(SightDate, Year, Month, Time, FishArea, Quadrant, Pod_Group) %>%
+  summarise(Sightings = n(), .groups = 'drop')
+
+# write out the new table
+write_csv(collapsed_data, "/Users/cmantegna/Documents/YellowIsland2024/output/orca_sightings.csv")
+
+# check the data is what you want
+head(collapsed_data)
+
+```
+
+# No need to rerun this chunk. The table is made.
+```{r}
+
+# it looks like there are too many quadrants to visualize at this level. let's create a table to know for sure.
+
+# group data by year and count the unique quadrants
+quadrants_per_year <- data %>%
+  group_by(Year) %>%
+  summarise(Unique_Quadrants = n_distinct(Quadrant))
+
+# write out the new table
+write_csv(quadrants_per_year,  "/Users/cmantegna/Documents/YellowIsland2024/output/quadrant_counts.csv")
+
+# check the table is what you want
+head(quadrants_per_year)
 
 ```
 
 ```{r}
 
-# sightings breakdown by Pod column
+# there are too many unique quadrants to visualize successfully. We can get counts for each quadrant, but visualizing is too busy to be useful.
 
-# Count the number of sightings for each Pod value
-pod_counts <- data_cleaned %>%
-  group_by(Pod) %>%
-  summarise(Number_of_Sightings = n()) %>%
-  arrange(desc(Number_of_Sightings))
+# load your new, cleaned df
+data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/output/orca_sightings.csv")
 
-# Display the first few rows to verify the counts
-print(head(pod_counts))
+```
 
-# Write the counts to a new CSV file
-write.csv(pod_counts, "/Users/cmantegna/Documents/YellowIsland2024/output/orca_sighting_grouped.csv")
+```{r}
+
+# load libraries
+library(dplyr)
+library(tidyr)
+library(readr)
+
+# group by Year, Month, Quadrant, and Pod_Group
+quadrant_data <- data %>%
+  group_by(Year, Month, Quadrant, Pod_Group) %>%
+  summarise(Sightings = n(), .groups = 'drop')
+
+# make a table
+quadrant_data <- quadrant_data %>%
+  group_by(Year, Quadrant, Pod_Group) %>%
+  summarise(Sightings = sum(Sightings), .groups = 'drop') %>%
+  pivot_wider(names_from = Pod_Group, values_from = Sightings, values_fill = 0)
+
+# write out the new table
+write_csv(quadrant_data, "/Users/cmantegna/Documents/YellowIsland2024/output/quadrant_data.csv")
+
+
+# check your table
+head(quadrant_data)
+
+```
+
+# Yearly sighting breakdown, stacked bar - x= year, y=count, fill= pod grouping
+```{r}
+ 
+# load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# summarize by year and Pod grouping
+yearly_summary <- data %>%
+  group_by(Year, Pod_Group) %>%
+  summarise(Sightings = sum(Sightings), .groups = 'drop')
+
+# stacked bar
+ggplot(yearly_summary, aes(x = as.factor(Year), y = Sightings, fill = Pod_Group)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Year", y = "Number of Sightings", title = "Orca Sightings by Year and Pod Group") +
+  theme_minimal() +
+  scale_x_discrete(labels = function(x) as.integer(as.character(x))) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  guides(fill = guide_legend(title = "Pod Group"))
 
 
 ```
