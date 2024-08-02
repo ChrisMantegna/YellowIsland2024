@@ -1,0 +1,106 @@
+---
+title: humpack data
+---
+
+```{r}
+
+# load libraries
+library(tidyr)
+
+```
+
+```{r}
+
+# load data
+#data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/humpbacks.csv")
+data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/humpback_cleaned.csv")
+
+```
+
+```{r}
+
+# review data
+head(data_cleaned)
+
+```
+
+```{r}
+
+# clean up the empty cells
+
+# replace empty cells with 'unknown' 
+data <- data_cleaned %>%
+  mutate(Quadrant = ifelse(is.na(Quadrant) | Quadrant == "", "unknown", Quadrant))
+
+# save 'cleaned' csv
+write.csv(data, "/Users/cmantegna/Documents/YellowIsland2024/data/humpback_cleaned.csv", row.names = FALSE)
+
+head(data)
+
+```
+
+# Selecting the quadrants around SJI and Seattle
+
+SJI - N: 167 - 169\
+SJI - E: 188, 191, 192\
+SJI - S: 185 - 187\
+SJI - W: 175 - 184\
+Seattle: 400 - 414
+
+```{r}
+
+# pull out the following quadrants: 167 - 169, 175 - 188, 191 - 192, and 400 - 414
+library(dplyr)
+
+selected_quadrants <- data %>%
+  filter((Quadrant >= 167 & Quadrant <= 169) |
+         (Quadrant >= 175 & Quadrant <= 188) |
+         (Quadrant >= 191 & Quadrant <= 192) |
+         (Quadrant >= 400 & Quadrant <= 414))
+
+```
+
+```{r}
+
+# there are empty cells in the count column, so I am going to replace them with 1 since at least 1 must have been seen to account for a recorded sighting.
+
+selected_quadrants$Count <- ifelse(selected_quadrants$Count == "", 1, as.numeric(selected_quadrants$Count))
+
+
+
+# group by year and quadrant count
+summary_table <- selected_quadrants %>%
+  group_by(Year, Quadrant) %>%
+  summarise(total_count = sum(Count, na.rm = TRUE)) %>%
+  ungroup()
+
+# write out to a table
+#write_csv(summary_table, "/Users/cmantegna/Documents/YellowIsland2024/output/humpback_quadrant_totals.csv")
+
+```
+
+```{r}
+
+# adding SJI and Seattle locations column
+
+library(dplyr)
+
+# create column assignments for the right quadrant numbers
+summary_table <- summary_table %>%
+  mutate(Location = case_when(
+    Quadrant >= 167 & Quadrant <= 169 ~ "SJI_North",
+    Quadrant >= 175 & Quadrant <= 184 ~ "SJI_West",
+    Quadrant >= 185 & Quadrant <= 187 ~ "SJI_South",
+    Quadrant == 188 | Quadrant == 189 | Quadrant == 191 | Quadrant == 192 ~ "SJI_East",
+    Quadrant >= 400 & Quadrant <= 414 ~ "Seattle",
+    TRUE ~ "Unknown" 
+  ))
+
+
+# write out to a table
+write_csv(summary_table, "/Users/cmantegna/Documents/YellowIsland2024/output/humpback_quadrant_totals.csv")
+
+# check your table
+head(summary_table)
+```
+
