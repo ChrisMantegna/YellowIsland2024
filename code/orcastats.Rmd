@@ -221,6 +221,22 @@ head(summary_wide)
 
 ```
 
+```{r}
+# counting the number of sightings, not the number of whales seen
+
+library(dplyr)
+
+# Count each time a whale was seen in each quadrant, separated by year
+sighting_counts <- data_cleaned %>%
+  group_by(Year, Quadrant) %>%
+  summarise(SightingCount = n())
+
+# check
+head(sighting_counts)
+# write out to a table
+write.csv(sighting_counts, "/Users/cmantegna/Documents/YellowIsland2024/output/orca_sighting_totals.csv")
+```
+
 # Yearly sighting breakdown, stacked bar - x= year, y=count, fill= pod grouping
 
 ```{r}

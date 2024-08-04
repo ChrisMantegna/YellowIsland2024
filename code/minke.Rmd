@@ -14,7 +14,7 @@ library(tidyr)
 # load data
 
 data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/minke.csv")
-#data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/minke_cleaned.csv")
+data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/minke_cleaned.csv")
 
 ```
 
@@ -60,4 +60,48 @@ selected_quadrants <- data_cleaned %>%
 
 ```
 
+```{r}
+
+# adding SJI and Seattle locations column
+
+library(dplyr)
+library(readr)
+
+# create column assignments for the right quadrant numbers
+summary_table <- selected_quadrants %>%
+  mutate(Location = case_when(
+    Quadrant >= 167 & Quadrant <= 169 ~ "SJI_North",
+    Quadrant >= 175 & Quadrant <= 184 ~ "SJI_West",
+    Quadrant >= 185 & Quadrant <= 187 ~ "SJI_South",
+    Quadrant == 188 | Quadrant == 189 | Quadrant == 191 | Quadrant == 192 ~ "SJI_East",
+    Quadrant >= 400 & Quadrant <= 414 ~ "Seattle",
+    TRUE ~ "Unknown" 
+  ))
+
+
+# write out to a table
+write_csv(summary_table, "/Users/cmantegna/Documents/YellowIsland2024/output/minke_quadrant_totals.csv")
+
+# check your table
+head(summary_table)
+```
+
+```{r}
+
+# counting the number of sightings, not the number of whales seen
+
+library(dplyr)
+
+# Count each time a whale was seen in each quadrant, separated by year
+sighting_counts <- data_cleaned %>%
+  group_by(Year, Quadrant) %>%
+  summarise(SightingCount = n())
+
+# check
+head(sighting_counts)
+
+# write out to a table
+write.csv(sighting_counts, "/Users/cmantegna/Documents/YellowIsland2024/output/minke_sighting_totals.csv")
+
+```
 
