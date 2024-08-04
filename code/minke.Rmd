@@ -1,0 +1,63 @@
+---
+title: minke stats
+---
+
+```{r}
+
+# load libraries
+library(tidyr)
+
+```
+
+```{r}
+
+# load data
+
+data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/minke.csv")
+#data_cleaned <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/minke_cleaned.csv")
+
+```
+
+```{r}
+
+# review data
+head(data)
+```
+
+```{r}
+
+# clean up the empty cells
+library(dplyr)
+
+# replace empty cells with 'unknown' 
+data_cleaned <- data %>%
+  mutate(Quadrant = ifelse(is.na(Quadrant) | Quadrant == "", "unknown", Quadrant))
+
+# save 'cleaned' csv
+write.csv(data, "/Users/cmantegna/Documents/YellowIsland2024/data/minke_cleaned.csv", row.names = FALSE)
+
+head(data)
+
+```
+
+```{r}
+# Selecting the quadrants around SJI and Seattle
+
+#SJI - N: 167 - 169\
+#SJI - E: 188, 191, 192\
+#SJI - S: 185 - 187\
+#SJI - W: 175 - 184\
+#Seattle: 400 - 414
+
+# pull out the following quadrants: 167 - 169, 175 - 188, 191 - 192, and 400 - 414
+library(dplyr)
+
+selected_quadrants <- data_cleaned %>%
+  filter((Quadrant >= 167 & Quadrant <= 169) |
+         (Quadrant >= 175 & Quadrant <= 188) |
+         (Quadrant >= 191 & Quadrant <= 192) |
+         (Quadrant >= 400 & Quadrant <= 414))
+
+```
+
+
