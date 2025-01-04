@@ -19,7 +19,7 @@ library(reshape2)   # For reshaping data
 #getwd()
 
 # Read-in the data
-data <- read.csv("/Users/cmantegna/Documents/YellowIsland2024/data/hemi_complete.csv")
+data <- read.csv("/Users/cmantegna/Documents/GitHub/YellowIsland2024/data/hemi_complete.csv")
 ```
 
 ```{r}
@@ -225,13 +225,39 @@ kruskal_results
 ```{r}
 
 #Making the df for plotting
-#crabs_with_leg_hair <- subset(data, leg_hair == 'Y')
-#crabs_without_leg_hair <- subset(data, leg_hair == 'N')
+crabs_with_leg_hair <- subset(data, leg_hair == 'Y')
+crabs_without_leg_hair <- subset(data, leg_hair == 'N')
 
 #summary(crabs_with_leg_hair) # Mean carapace width is 6.9 (above total average)
 #summary(crabs_without_leg_hair) # Mean carapace width is 5.429 (below total average)
 
 ```
+
+# New carapace plot - leg hair
+```{r}
+
+carapace<- ggplot() +
+  geom_histogram(data = crabs_with_leg_hair, aes(x = carapace_width, fill = "Purple"), binwidth = 1, alpha = 0.5) +
+  geom_histogram(data = crabs_without_leg_hair, aes(x = carapace_width, fill = "Yellow"), binwidth = 1, alpha = 0.5) +
+  labs(title = "Carapace Width Distribution", x = "Carapace Width", y = "Frequency") +
+  scale_fill_manual(
+    name = "Crab",
+    values = c("Purple" = "darkorchid4", "Yellow" = "gold2", "Unidentified" = "darkgrey")
+  ) +
+  theme_minimal(base_size = 15) + # Increases the base size for text
+  theme(
+    panel.background = element_rect(fill = "white", color = NA), # White background
+    plot.title = element_text(size = 20, face = "bold"), # Larger title
+    axis.title = element_text(size = 18), # Larger axis titles
+    axis.text = element_text(size = 14) # Larger axis text
+  )
+
+print(carapace)
+
+ggsave(filename= "/Users/cmantegna/Documents/GitHub/YellowIsland2024/output/carapace_leghair.png", plot=carapace, width = 12, height = 10, dpi = 300)
+
+```
+
 
 ## Carapace Width Distribution by Presence of Leg Hair (brown/ dark gold is where the two categories overlap)
 ```{r}
@@ -245,7 +271,7 @@ ggplot() +
   geom_histogram(data = crabs_with_leg_hair, aes(x = carapace_width, fill = "With Leg Hair"), binwidth = 1, alpha = 0.5) +
   geom_histogram(data = crabs_without_leg_hair, aes(x = carapace_width, fill = "Without Leg Hair"), binwidth = 1, alpha = 0.5) +
   labs(title = "Carapace Width Distribution", x = "Carapace Width", y = "Frequency") +
-  scale_fill_manual(name = "Leg Hair", values = c("With Leg Hair" = "darkorchid4", "Without Leg Hair" = "gold2")) +
+  scale_fill_manual(name = "Crab", values = c("With Leg Hair" = "darkorchid4", "Without Leg Hair" = "gold2")) +
   theme_minimal()
 
 ```
@@ -269,6 +295,63 @@ ggplot(tidal_zone_counts, aes(x = tidal_zone, y = n, fill = leg_hair)) +
   labs(title = "Tidal Zone Distribution", x = "Tidal Zone", y = "Frequency") +
   scale_fill_manual(name = "Leg Hair", values = c("Y" = "darkorchid4", "N" = "gold3"), labels = c("With Leg Hair", "Without Leg Hair")) +
   theme_minimal()
+
+
+```
+
+# New tidal zone - leg hair
+```{r}
+
+tidal_zone_counts <- data %>%
+  group_by(tidal_zone, leg_hair) %>%
+  tally()
+
+ggplot(tidal_zone_counts, aes(x = tidal_zone, y = n, fill = leg_hair)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Tidal Zone Distribution", x = "Tidal Zone", y = "Frequency") +
+  scale_fill_manual(
+    name = "Crab",
+    values = c("N" = "darkorchid4", "Y" = "gold2", "Unidentified" = "darkgrey"),
+    labels = c("N" = "Purple", "Y" = "Yellow", "Unidentified" = "Unidentified")
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA), # White background for plot area
+    plot.background = element_rect(fill = "white", color = NA), # White background for entire plot
+    plot.title = element_text(size = 20, face = "bold"), # Larger title
+    axis.title = element_text(size = 18), # Larger axis titles
+    axis.text = element_text(size = 14) # Larger axis text
+  )
+
+
+```
+
+# Plot for claw spots
+
+```{r}
+
+tidal_zone_counts <- data %>%
+  group_by(tidal_zone, spotted_claws) %>%
+  tally()
+
+ggplot(tidal_zone_counts, aes(x = tidal_zone, y = n, fill = spotted_claws)) +
+  geom_bar(stat = "identity", position = "stack") +
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), color = "white") +
+  labs(title = "Tidal Zone Distribution", x = "Tidal Zone", y = "Frequency") +
+  scale_fill_manual(
+    name = "Crab",
+    values = c("Y" = "darkorchid4", "N" = "gold2", "Unidentified" = "darkgrey"),
+    labels = c("Y" = "Purple", "N" = "Yellow", "Unidentified" = "Unidentified")
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA), # White background for plot area
+    plot.background = element_rect(fill = "white", color = NA), # White background for entire plot
+    plot.title = element_text(size = 20, face = "bold"), # Larger title
+    axis.title = element_text(size = 18), # Larger axis titles
+    axis.text = element_text(size = 14) # Larger axis text
+  )
 
 
 ```
@@ -312,6 +395,39 @@ ggplot(sex_counts, aes(x = sex, y = n, fill = leg_hair)) +
 ```
 
 # Claw Spots
+
+# New plot
+```{r}
+
+spotted_claws_counts <- data %>%
+  group_by(spotted_claws, leg_hair) %>%
+  tally()
+
+claws<- ggplot(data, aes(x = carapace_width, fill = spotted_claws)) +
+  geom_histogram(binwidth = 1, alpha = 0.7, position = "identity") +
+  labs(title = "Carapace Width Distribution Based on Spotted Claws", x = "Carapace Width", y = "Frequency") +
+  scale_fill_manual(
+    name = "Crab",
+    values = c("Y" = "darkorchid4", "N" = "gold2", "Unidentified" = "darkgrey"),
+    labels = c("Y" = "Purple", "N" = "Yellow", "Unidentified" = "Unidentified")
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA), # White background for plot area
+    plot.background = element_rect(fill = "white", color = NA), # White background for entire plot
+    plot.title = element_text(size = 20, face = "bold"), # Larger title
+    axis.title = element_text(size = 18), # Larger axis titles
+    axis.text = element_text(size = 14) # Larger axis text
+  )
+
+
+print(claws)
+
+ggsave(filename= "/Users/cmantegna/Documents/GitHub/YellowIsland2024/output/carapace_claws.png", plot=claws, width = 12, height = 10, dpi = 300)
+
+```
+
+
 ## Carapace Width Distribution by Presence of Spotted Claws
 ```{r}
 # With Spotted Claws: The mean carapace width is 7.79 with a standard deviation of 2.68. The range is from 3.0 to 16.5
@@ -390,6 +506,43 @@ ggplot(pie_data, aes(x = "", y = percentage, fill = category)) +
   geom_text(aes(label = paste0(percentage, "%")), position = position_stack(vjust = 0.5), color = "white") +
   theme_void() +
   labs(title = "Distribution of Crabs Based on Claw Spots and Leg Hair")
+
+```
+
+# new distribution
+```{r}
+
+library(ggplot2)
+
+# Define the new data
+sizes <- c(174, 90, 43)  # Updated counts for combined categories
+labels <- c('Unidentified', 'Yellow', 'Purple')  # Renamed categories
+colors <- c('darkgrey', '#CDAD00', '#68228B')  # Updated colors: black, gold, purple
+
+# Create a data frame
+pie_data <- data.frame(
+  category = factor(labels, levels = labels),  # Ensures the order is maintained
+  count = sizes
+)
+
+# Calculate percentages
+pie_data$percentage <- round(pie_data$count / sum(pie_data$count) * 100, 1)
+
+# Plot the pie chart
+ggplot(pie_data, aes(x = "", y = percentage, fill = category)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = setNames(colors, labels)) +  # Match colors to labels
+  geom_text(aes(label = paste0(percentage, "%")), 
+            position = position_stack(vjust = 0.5), 
+            color = "white", 
+            size = 6) +  # Increased label size
+  theme_void() +
+  labs(title = "Identification of Species By Both Characteristics") +
+  theme(
+    plot.title = element_text(size = 16, face = "bold")  # Adjust title size if needed
+  )
+
 
 ```
 
